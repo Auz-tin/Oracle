@@ -7,23 +7,23 @@ DESC student;
 CREATE TABLE student (
 name varchar(20),
 age number(2),
-fees number(8,2),
-);
-
-CREATE TABLE student (
-name varchar(20) PRIMARY KEY,
-age number(2),
-fees number(8,2) REFERENCES table2
-);
-
-CREATE TABLE student (
-name varchar(20),
-age number(2),
 fees number(8,2)
-CONSTRAINT constraint_name PRIMARY KEY (name,age),
-CONSTRAINT constraint_name PRIMARY KEY (name,age),
 );
 
+CREATE TABLE student (
+name varchar(20) CONSTRAINT constraint_name PRIMARY KEY,
+age number(2),
+fees number(8,2) REFERENCES table2(fees)
+);
+
+CREATE TABLE student (
+id number(3) UNIQUE,
+name varchar(20) NOT NULL,
+age number(2) CHECK age>18,
+fees number(8,2), 
+CONSTRAINT constraint_name PRIMARY KEY (name,age),
+CONSTRAINT constraint_name FOREIGN KEY (fees) REFERENCES table2(fees),
+);
 
 -- INSERT VALUES INTO THE TABLE
 INSERT INTO studenttable  VALUES ( 'SAM',19,7888.90);
