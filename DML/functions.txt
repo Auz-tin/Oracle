@@ -1,0 +1,18 @@
+--TABLE NAME: EMPLOYEES
+--EMPLOYEES ( employee_id, employee_name, salary )
+
+
+-- GROUP/ AGGREGATE FUNCTIONS
+SELECT SUM(salary),MAX(salary),MIN(salary),AVG(salary),COUNT(*) AS employee_count
+FROM employees;
+
+-- MATH FUNCTIONS
+SELECT round(AVG(salary),2), floor(AVG(salary)), ceil(AVG(salary)), TRUNC(AVG(salary),2)
+FROM employees 
+
+-- DATE FUNCTIONS
+SELECT employee_id,floor(months_between(sysdate,hire_date)/12) as years_of_experience
+from employees;
+SELECT add_months(sysdate,5) FROM DUAL;
+SELECT last_day(sysdate) from dual;
+SELECT next_day(sysdate,'monday') from dual;
