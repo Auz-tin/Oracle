@@ -1,0 +1,15 @@
+-- TABLE NAME STUDENT
+-- STUDENT (ID, NAME, CITY, AGE)
+
+-- SELECT all
+SELECT * FROM STUDENT;
+
+-- SELECT particular column
+SELECT id, name FROM STUDENT;
+
+-- concatenation
+SELECT 'Mr. '|| name || ' from '|| city  AS greeting FROM STUDENT;
+
+-- unique data
+SELECT DISTINCT name FROM STUDENT WHERE name='arun';
+
