@@ -2,10 +2,10 @@
 -- STUDENT (ID, NAME, CITY, AGE)
 
 -- SELECT all
-SELECT * FROM STUDENT;
+SELECT * FROM STUDENT ORDER BY id ASC;
 
 -- SELECT particular column
-SELECT id, name FROM STUDENT;
+SELECT id, name FROM STUDENT ORDER BY id DESC;
 
 -- concatenation
 SELECT 'Mr. '|| name || ' from '|| city  AS greeting FROM STUDENT;
@@ -19,8 +19,8 @@ SELECT name FROM STUDENT WHERE name LIKE 'A%a';
 --LIKE (names second letter as 'a')
 SELECT name FROM STUDENT WHERE name LIKE '_a%';
 
---LOGICAL OPERATION (>, >=, <, <=, != (or) <>, ==)
-SELECT name FROM STUDENT WHERE age>18;  
+--LOGICAL OPERATION (>, >=, <, <=, != (or) <>, =)
+SELECT name FROM STUDENT WHERE age>18 AND ROWNUM=1;  
 SELECT name FROM STUDENT WHERE age BETWEEN 18 AND 24;
 SELECT name FROM STUDENT WHERE age NOT BETWEEN 18 AND 24;
 SELECT name FROM STUDENT WHERE age IN (18,20,21);
