@@ -10,6 +10,20 @@ SELECT id, name FROM STUDENT;
 -- concatenation
 SELECT 'Mr. '|| name || ' from '|| city  AS greeting FROM STUDENT;
 
--- unique data
-SELECT DISTINCT name FROM STUDENT WHERE name='arun';
+-- unique data (Unique names starting with A)
+SELECT DISTINCT name FROM STUDENT WHERE name LIKE 'A%';
 
+--LIKE (names starting with A and ending with a)
+SELECT name FROM STUDENT WHERE name LIKE 'A%a';
+
+--LIKE (names second letter as 'a')
+SELECT name FROM STUDENT WHERE name LIKE '_a%';
+
+--LOGICAL OPERATION (>, >=, <, <=, != (or) <>, ==)
+SELECT name FROM STUDENT WHERE age>18;  
+SELECT name FROM STUDENT WHERE age BETWEEN 18 AND 24;
+SELECT name FROM STUDENT WHERE age NOT BETWEEN 18 AND 24;
+SELECT name FROM STUDENT WHERE age IN (18,20,21);
+SELECT name FROM STUDENT WHERE age NOT IN (18,20,21);
+SELECT name FROM STUDENT WHERE age > ANY (18,20,21);
+SELECT name FROM STUDENT WHERE age > ALL(18,20,21);
