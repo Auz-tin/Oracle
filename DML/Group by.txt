@@ -14,3 +14,26 @@ SELECT dept_id, max(salary) FROM details GROUP BY dept_id;
 SELECT * FROM DETAILS 
 WHERE (dept_id,salary) in 
 (SELECT dept_id, max(salary) FROM details GROUP BY dept_id);
+
+
+
+- TABLE NAME: EMPLOYEES
+-- EMPLOYEES (ID, NAME, SALARY, DEPARTMENT_ID)
+
+-- SECOND MAX SALARY
+SELECT max(salary) FROM employees
+WHERE salary < (SELECT max(salary) FROM employees);
+
+-- CORRELATED SUBQUERY (MAX SALARY DETAILS IN EACH DEPARTMENT)
+SELECT name, salary
+FROM employees E
+where salary = (select  max(salary) from employees where department_id=e.department_id);
+
+
+-- SECOND MAX SALARY IN EACH DEPARTMENT
+SELECT first_name, salary, department_id
+FROM employees E
+where salary = (select  max(salary) from employees where department_id=e.department_id 
+                and salary< (select  max(salary) from employees where department_id=e.department_id ));
+                                   
+--
