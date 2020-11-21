@@ -1,0 +1,7 @@
+-- INSERT VALUES INTO THE TABLE
+
+INSERT INTO studenttable  VALUES ( 'SAM',19,7888.90);
+INSERT INTO studenttable (age,fees,name)  VALUES ( 21,5628.90,'HAM');
+
+-- DELETE VALUES FROM TABLE
+DELETE FROM student where name='sam';
