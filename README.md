@@ -1,4 +1,10 @@
-# Oracle
+# Oracle/ SQL/ RDBMS (Relational Database Management System)
 basic SQL commands
-# SQL
-# RDBMS (Relational Database Management System)
+# DDL (DATA DEFINITION LANGUAGE)
+create, drop, truncate, alter, modify, rename
+# DML (DATA MODIFICATION LANGUAGE)
+insert, update, delete, select (Data Query Language)
+# DCL (TRANSACTION CONTROL LANGUAGE)
+grant, revoke
+# TCL (TRANSACTION CONTROL LANGUAGE)
+commit, rollback, savepoint
