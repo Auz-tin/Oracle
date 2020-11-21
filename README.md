@@ -4,7 +4,7 @@ basic SQL commands
 create, drop, truncate, alter, modify, rename
 # DML (DATA MODIFICATION LANGUAGE)
 insert, update, delete, select (Data Query Language)
-# DCL (TRANSACTION CONTROL LANGUAGE)
+# DCL (DATA CONTROL LANGUAGE)
 grant, revoke
 # TCL (TRANSACTION CONTROL LANGUAGE)
 commit, rollback, savepoint
