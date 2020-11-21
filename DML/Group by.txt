@@ -1,0 +1,16 @@
+-- TABLE NAME: DETAILS
+-- DETAILS (ID, NAME, SALARY, DEPT_ID)
+
+-- MAX SALARY
+SELECT max(salary) FROM details;
+
+-- MAX SALARY DETAILS
+SELECT * FROM DETAILS WHERE salary = (SELECT max(salary) FROM details);
+
+-- MAX SALARY IN EACH DEPARTMENT
+SELECT dept_id, max(salary) FROM details GROUP BY dept_id;
+
+-- MAX SALARY DETAILS IN EACH DEPARTMENT
+SELECT * FROM DETAILS 
+WHERE (dept_id,salary) in 
+(SELECT dept_id, max(salary) FROM details GROUP BY dept_id);
