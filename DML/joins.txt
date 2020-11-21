@@ -1,0 +1,17 @@
+-- TABLE NAME: EMPLOLYEE, DEPARTMENT
+-- EMPLOYEE (ID, NAME, DEPTID, SALARY)
+-- DEPARTMENT (DEPTID, DEPTNAME, LOCATION)
+
+-- EMPLOYEE NAME AND DEPTNAME
+SELECT name, deptname 
+FROM employee JOIN department USING(deptid);
+
+-- EMPLOYEE NAME, DEPTNAME WITH MAX SALARY
+SELECT name, deptname, salary 
+FROM employee JOIN department ON employee.deptid = department.deptid
+WHERE salary = (SELECT max(salary) FROM employee);
+
+-- EMPLOYEE NAME, DEPTNAME WITH MAX SALARY IN EACH DEPARTMENT
+SELECT name, deptname, salary 
+FROM employee E JOIN department D ON E.deptid = D.deptid
+WHERE (e.deptid,salary) IN (SELECT deptid,max(salary) FROM employee GROUP BY deptid);
