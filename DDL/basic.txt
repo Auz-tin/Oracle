@@ -5,7 +5,7 @@ DESC student;
 
 -- CREATE TABLE 
 CREATE TABLE student (
-name varchar(20),
+name varchar2(20),
 age number(2),
 fees number(8,2)
 );
@@ -19,12 +19,27 @@ fees number(8,2) REFERENCES table2(fees)
 CREATE TABLE student (
 id number(3) UNIQUE,
 name varchar(20) NOT NULL,
-age number(2) CHECK age>18,
+age number(2) CHECK (age>18),
 fees number(8,2), 
 CONSTRAINT constraint_name PRIMARY KEY (name,age),
-CONSTRAINT constraint_name FOREIGN KEY (fees) REFERENCES table2(fees),
+CONSTRAINT constraint_name FOREIGN KEY (fees) REFERENCES table2(fees)
 );
 
 -- INSERT VALUES INTO THE TABLE
 INSERT INTO studenttable  VALUES ( 'SAM',19,7888.90);
 INSERT INTO studenttable (age,fees,name)  VALUES ( 21,5628.90,'HAM');
+
+-- DROP TABLE (removes values, table and the structure from the database)
+DROP TABLE student;
+
+-- TRUNCATE TABLE (removes only values in the table, table and the structure exist in the database)
+TRUNCATE TABLE student;
+
+-- ALTER
+ALTER TABLE student ADD city varchar2(20);
+ALTER TABLE student MODIFY city varchar2(10);
+ALTER TABLE student RENAME COLUMN city TO address;
+ALTER TABLE student DROP COLUMN address;
+ALTER TABLE student DROP CONSTRAINT constraint_name;
+
+
