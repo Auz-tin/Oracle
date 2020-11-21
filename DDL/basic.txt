@@ -25,10 +25,6 @@ CONSTRAINT constraint_name PRIMARY KEY (name,age),
 CONSTRAINT constraint_name FOREIGN KEY (fees) REFERENCES table2(fees)
 );
 
--- INSERT VALUES INTO THE TABLE
-INSERT INTO studenttable  VALUES ( 'SAM',19,7888.90);
-INSERT INTO studenttable (age,fees,name)  VALUES ( 21,5628.90,'HAM');
-
 -- DROP TABLE (removes values, table and the structure from the database)
 DROP TABLE student;
 
