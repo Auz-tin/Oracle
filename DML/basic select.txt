@@ -14,7 +14,7 @@ SELECT id, name FROM STUDENT WHERE city='chennai' and age>18;
 -- concatenation
 SELECT 'Mr. '|| name || ' from '|| city  AS greeting FROM STUDENT;
 
--- unique data (Unique names starting with A)
+-- Eliminates Duplicates (Unique names starting with A)
 SELECT DISTINCT name FROM STUDENT WHERE name LIKE 'A%';
 
 --LIKE (names starting with A and ending with a)
