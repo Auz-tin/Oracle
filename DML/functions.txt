@@ -23,6 +23,12 @@ SELECT SUBSTR(employee_name,1,3) FROM employees;  -- tommy = tom
 SELECT SUBSTR(employee_name,2) FROM employees;  -- tommy = ommy
 SELECT SUBSTR(employee_name,-2,2) FROM employees;  -- tommy = my
 
+-- CONVERSION FUNCTIONS]
+SELECT TO_CHAR(sysdate,'dd month yyyy') FROM DUAL;
+SELECT TO_DATE('may-30-1999','mon-dd-yyyy') FROM DUAL;
+SELECT TO_NUMBER('256.56',999.99) FROM DUAL;
+SELECT TO_NUMBER('256',999) FROM DUAL;
+
 -- GROUP/ AGGREGATE FUNCTIONS
 SELECT SUM(salary),MAX(salary),MIN(salary),AVG(salary),COUNT(*) AS employee_count
 FROM employees;
