@@ -1,0 +1,26 @@
+TABLE NAME: TAX
+TAX (ID, CUST_NAME, ADDRESS, POLICY, INTEREST, PENALTY)
+
+-- CASE
+SELECT id, CASE policy
+           WHEN 'company' THEN 'corporate'
+           WHEN 'personal' THEN 'normal'
+           ELSE 'unknown'
+           END "category", cust_name, interest
+FROM tax;
+
+-- DECODE
+SELECT id, DECODE(policy,'company','corporate','personal','normal','unknown') as "category"
+FROM tax;
+
+
+-- CHECK NULL
+-- NVL (if null print zero, else print value)
+SELECT cust_name, nvl(penalty,0) as amount FROM TAX;
+
+-- NVL2 (if null print paid, else print not paid)
+SELECT cust_name, nvl2(penalty,'paid','not paid') as amount FROM TAX;
+
+-- COALESCE (print name, if name null then print id, if id null then print address)
+SELECT coalesce(cust_name, id, address) as amount FROM TAX;
+
