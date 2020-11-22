@@ -17,8 +17,31 @@ WHERE (dept_id,salary) in
 
 
 
-- TABLE NAME: EMPLOYEES
+-- TABLE NAME: EMPLOYEES, DEPARTMENTS
 -- EMPLOYEES (ID, NAME, SALARY, DEPARTMENT_ID)
+-- DEPARTMENTS (DEPARTMENT_ID, DEPARTMENT_NAME)
+
+-- TOTAL EMPLOYEE COUNT
+SELECT count(*) as EMPLOYEE_COUNT
+FROM employees;
+
+-- EMPLOYEE COUNT ENROLLED IN DEPARTMENT
+SELECT count(*) as EMPLOYEE_COUNT
+FROM employees join departments using(department_id);
+
+-- EMPLOYEE COUNT IN EACH DEPARTMENT
+SELECT department_name, count(*) as EMPLOYEE_COUNT
+FROM employees JOIN departments using(department_id)
+group by department_name;
+
+-- NO OF DEPARTMENTS
+SELECT COUNT(*) FROM departments;
+
+-- NO OF DEPARTMENTS WITH EMPLOYEES
+SELECT count(*) FROM (SELECT count(*) as dept, department_id 
+FROM employees JOIN departments USING(department_id)
+GROUP BY department_id);
+
 
 -- SECOND MAX SALARY
 SELECT max(salary) FROM employees
@@ -29,11 +52,10 @@ SELECT name, salary
 FROM employees E
 where salary = (select  max(salary) from employees where department_id=e.department_id);
 
-
 -- SECOND MAX SALARY IN EACH DEPARTMENT
 SELECT first_name, salary, department_id
 FROM employees E
 where salary = (select  max(salary) from employees where department_id=e.department_id 
                 and salary< (select  max(salary) from employees where department_id=e.department_id ));
-                                   
+
 --
